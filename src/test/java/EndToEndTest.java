@@ -36,6 +36,7 @@ public class EndToEndTest {
 
     @BeforeEach
     public void setup(){
+        controller.init();
         awaitInitialization();
     }
 
@@ -50,7 +51,7 @@ public class EndToEndTest {
         TestResponse res4 = request("POST", "/payment?from=bob&to=adam&currency=EUR&amount=100");
         assertThat(res4.status, is(200));
         Map<String, String> jsonFromPayment = res4.json();
-        assertThat(jsonFromPayment.toString(), is("{payee=adam, amount=100.0, newBalance=9900.0, currency=EUR, payer=bob}"));
+        assertThat(jsonFromPayment.toString(), is("{payee=adam, amount=100.0, newBalance=200.0, currency=EUR, payer=bob}"));
 
     }
 

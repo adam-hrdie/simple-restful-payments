@@ -21,10 +21,11 @@ public class AccountHandler {
         if(name == null)
             throw new AccountException("name cannot be null");
 
-        if(checkCurrency(currency.toUpperCase()))
+        if(checkCurrency(currency.toUpperCase()) == false)
             throw new AccountException("unknown currency [" + currency + "]");
 
         double balance;
+
         try {
             balance = Double.parseDouble(balanceStr);
         } catch (NumberFormatException e) {
@@ -34,6 +35,7 @@ public class AccountHandler {
         if(balance < 0)
             throw new AccountException("balance cannot be below zero");
 
+        LOG.info("account is valid : name=[{}], currency=[{}], balance=[{}]", name, currency, balance);
         return cache.createAndCacheAccount(name, Currency.valueOf(currency.toUpperCase()), balance);
     }
 

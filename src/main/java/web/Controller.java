@@ -40,7 +40,7 @@ public class Controller implements SparkApplication {
                 String name = req.queryParams("name");
                 String currency = req.queryParams("currency");
                 String balance = req.queryParams("balance");
-                logReceipt("createAccount", name);
+                logReceipt("createAccount", name, currency, balance);
                 return accountHandler.createAccount(name, currency, balance);
             } catch (Exception e) {
                 res.status(400);

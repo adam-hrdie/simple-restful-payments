@@ -58,7 +58,8 @@ public class InMemoryCache implements Cache {
     }
 
     @Override
-    public Optional<Account> getOptionalAccount(String name) {
-        return ofNullable(accountsMap.get(name.toLowerCase()));
+    public Optional<Account> getOptionalAccount(String name, Currency currency) {
+        AccountKey key = new AccountKey(name, currency);
+        return ofNullable(accountsMap.get(key));
     }
 }

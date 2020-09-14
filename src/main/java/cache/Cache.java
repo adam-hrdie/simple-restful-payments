@@ -13,5 +13,5 @@ public interface Cache {
 
     double decreaseAccountBalance(String name, Currency currency, double amount) throws PaymentFailedException;
 
-    Optional<Account> getOptionalAccount(String name);
+    Optional<Account> getOptionalAccount(String name, Currency currency);
 }
