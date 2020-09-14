@@ -7,15 +7,6 @@ public class TransactionSuccessful {
     private final String payer;
     private final double newBalance;
 
-    public TransactionSuccessful(double amount, Currency currency, String payee, String payer, double newBalance) {
-        this.amount = amount;
-        this.currency = currency;
-        this.payee = payee;
-        this.payer = payer;
-        this.newBalance = newBalance;
-    }
-
-
     public TransactionSuccessful(Transaction tx, double newBalance) {
         this.amount = tx.getAmount();
         this.currency = tx.getCurrency();
@@ -24,24 +15,8 @@ public class TransactionSuccessful {
         this.newBalance = newBalance;
     }
 
-    public double getAmount() {
-        return amount;
-    }
-
     public Currency getCurrency() {
         return currency;
-    }
-
-    public String getPayee() {
-        return payee;
-    }
-
-    public String getPayer() {
-        return payer;
-    }
-
-    public double getNewBalance() {
-        return newBalance;
     }
 
     @Override
